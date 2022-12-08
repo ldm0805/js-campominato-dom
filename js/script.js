@@ -1,6 +1,19 @@
-let arrayBombs=[];
-// Collego il bottone
+  function createBombsArray(min, max){
+      let bombs=[];
+      let i=0;
 
+      while( i < 16){
+      let number = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      if(!bombs.includes(number)){
+          bombs.push(number);
+          i++;
+      }
+  }
+  return bombs
+}
+
+ 
 let button = document.getElementById('item-up');
 
 button.addEventListener('click', function(){ 
@@ -23,11 +36,34 @@ for(let i = 0; i < grid_number; i++){
 // Click sui quadrati
     currentSquare.addEventListener('click', function(){
         this.classList.toggle('clicked')
-        this.classList.add('red')
-        grid.classList.add('remove')
         console.log(`La casella cliccata è la numero: ${this.innerText}`)
     })
+    
+    
 }
+
+
+// array bombe
+let arrayBombs =[];
+arrayBombs = createBombsArray(1, grid_number)
+console.log(arrayBombs)
+
+
+
+// ciclo tasti rossi
+// for(let i = 0; i < grid_number; i++){
+//     const arrayBombs = createBombsArray(1, grid_number)
+//     grid.appendChild(arrayBombs);
+// // Click sui quadrati
+//     arrayBombs.addEventListener('click', function(){
+//         this.classList.toggle('clicked')
+//         this.classList.add('red')
+//         grid.classList.add('remove')
+//         console.log(`La casella cliccata è la numero: ${this.innerText}`)
+//     })
+    
+    
+// }
 
 
 
@@ -39,12 +75,14 @@ function createGridSquare(number){
         return currentElement;
     }
     else if(grid_number == 81){
+
         const currentElement = document.createElement('div');
         currentElement.classList.add("square_med");
         currentElement.innerText = number;
         return currentElement;
     }
     else{
+
         const currentElement = document.createElement('div');
         currentElement.classList.add("square_min");
         currentElement.innerText = number;
