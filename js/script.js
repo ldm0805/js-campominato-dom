@@ -59,8 +59,9 @@ currentSquare.addEventListener('click', function(){
     this.classList.toggle('clicked')
 
     if (arrayBombs.includes(parseInt(this.innerText))){
+        
         this.classList.add('red');
-        // grid.classList.add('remove');
+        grid.classList.add('remove');
         showAllBombs(arrayBombs);
         alert ('Hai preso una bomba' +this.innerText);
     }
@@ -99,5 +100,4 @@ function createGridSquare(number){
     }
 }
 arrayBombs = createBombsArray(1, grid_number)
-console.log('Array bombe' + arrayBombs)
 })
