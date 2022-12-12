@@ -50,17 +50,17 @@ h1.title{
     font-size: 20px;
 }
 
-.square{
+.square-easy{
     height: calc(800px / 10);
     width: calc(800px / 10);
 }
 
-.square_med{
+.square-med{
     height: calc(800px / 9);
     width: calc(800px / 9);
 }
 
-.square_min{
+.square-diff{
     height: calc(800px / 7);
     width: calc(800px / 7);
 }

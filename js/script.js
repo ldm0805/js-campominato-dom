@@ -20,12 +20,13 @@ function showAllBombs(createBombsArray){
     const cells = document.getElementsByClassName('square');
 
     for(let i=0; i<cells.length; i++){
-        let cell = cells[i];
-        if(createBombsArray.includes(parseInt(cell.innerText))){
-            cell.classList.add('clicked');
-            cell.classList.add('red');
+        let currentSquare = cells[i];
+        if(createBombsArray.includes(parseInt(currentSquare.innerText))){
+            currentSquare.classList.add('clicked');
+            currentSquare.classList.add('red');
         }
     }
+    console.log(createBombsArray)
 }
 // Richiamo al bottone
 let button = document.getElementById('item-up');
@@ -58,10 +59,10 @@ currentSquare.addEventListener('click', function(){
     this.classList.toggle('clicked')
 
     if (arrayBombs.includes(parseInt(this.innerText))){
-        this.classList.add('click');
         this.classList.add('red');
+        // grid.classList.add('remove');
         showAllBombs(arrayBombs);
-        alert ('Hai preso una bomba'+ this.innerText);
+        alert ('Hai preso una bomba' +this.innerText);
     }
     else
     {
@@ -77,7 +78,7 @@ currentSquare.addEventListener('click', function(){
 function createGridSquare(number){
     if(grid_number == 100){
         const currentElement = document.createElement('div');
-        currentElement.classList.add("square");
+        currentElement.classList.add("square", "square-easy");
         currentElement.innerText = number;
         return currentElement;
    
@@ -85,14 +86,14 @@ function createGridSquare(number){
 
     else if(grid_number == 81){
         const currentElement = document.createElement('div');
-        currentElement.classList.add("square_med");
+        currentElement.classList.add("square", "square-med");
         currentElement.innerText = number;
         return currentElement;
     }
 
     else{
         const currentElement = document.createElement('div');
-        currentElement.classList.add("square_min");
+        currentElement.classList.add("square", "square-diff");
         currentElement.innerText = number;
         return currentElement;
     }
