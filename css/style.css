@@ -74,6 +74,9 @@ h1.title{
 
 .red{
     background-color: red;
+    color: white;
+    font-weight: bold;
+    outline:3px solid white;
 } 
 
  .remove{

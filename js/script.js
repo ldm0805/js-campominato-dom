@@ -31,21 +31,8 @@ grid_number = parseInt(document.getElementById('level').value);
 
 // creati 2 arrayBombs, 1 per i numeri 1 per le bombe
 
-let arrayBombs =[];
-arrayBombs = createBombsArray(1, grid_number) 
-console.log(arrayBombs)
 
-let arrayNumb = [];
-let j=1;
-while (j < (grid_number + 1 )){
-    arrayNumb.push(j);
-    j++
 
-}
-console.log(arrayNumb)
-if(arrayBombs == arrayNumb){
-    alert ('ciao')
-}
 
 // Ciclo per generare i quadrati con richiamo alla funzione
 for(let i = 0; i < grid_number; i++){
@@ -56,6 +43,12 @@ for(let i = 0; i < grid_number; i++){
 // Click sui quadrati
 currentSquare.addEventListener('click', function(){
     this.classList.toggle('clicked')
+    if (arrayBombs.includes(parseInt(this.innerText))){
+        this.classList.remove('rd');
+
+        this.classList.add('red');
+        alert ('Hai preso una bomba'+ this.innerText);
+    }
     console.log(`La casella cliccata è la numero: ${this.innerText}`)
 },{once:`true`})
 }
@@ -87,5 +80,6 @@ function createGridSquare(number){
         return currentElement;
     }
 }
+arrayBombs = createBombsArray(1, grid_number)
+console.log('questo' + arrayBombs)
 })
-
