@@ -59,22 +59,23 @@ currentSquare.addEventListener('click', function(){
     this.classList.toggle('clicked')
 
     if (arrayBombs.includes(parseInt(this.innerText))){
-        
         this.classList.add('red');
         grid.classList.add('remove');
         showAllBombs(arrayBombs);
-        alert ('Hai preso una bomba' +this.innerText);
+        alert ('Ops, hai perso!');
     }
     else
     {
         contCells++;
+        document.getElementById('punteggio').innerHTML =`Il tuo punteggio è : ${contCells}`
         console.log(contCells)
+        
     }
     console.log(`La casella cliccata è la numero: ${this.innerText}`)
 },{once:`true`})
 }
 
-// array bombe
+// Array bombe
 
 function createGridSquare(number){
     if(grid_number == 100){

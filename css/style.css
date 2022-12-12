@@ -25,15 +25,24 @@ h1.title{
 
 .container_grid{
     background-color: aqua;
-    height: 800px;
-    width: 800px;
+    height: 700px;
+    width: 700px;
     margin: 3em auto;
     outline: 1px solid #181D31;
 }
 
-.input-group{
-    height: 4em;
+.input_class{
+    height: 7em;
+    background-color: #293462;
+    width: 100%;
 }
+
+
+.input-group{
+    height: 10%;
+    width: 90%;
+}
+
 
 .grid{
     width: 100%;
@@ -51,18 +60,18 @@ h1.title{
 }
 
 .square-easy{
-    height: calc(800px / 10);
-    width: calc(800px / 10);
+    height: calc(700px / 10);
+    width: calc(700px / 10);
 }
 
 .square-med{
-    height: calc(800px / 9);
-    width: calc(800px / 9);
+    height: calc(700px / 9);
+    width: calc(700px / 9);
 }
 
 .square-diff{
-    height: calc(800px / 7);
-    width: calc(800px / 7);
+    height: calc(700px / 7);
+    width: calc(700px / 7);
 }
 
 .clicked{
@@ -77,9 +86,12 @@ h1.title{
     color: white;
     font-weight: bold;
     outline:3px solid white;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Bomb.svg/2048px-Bomb.svg.png)
 } 
 
  .remove{
     pointer-events: none;
+}
+
+#level, #item-up{
+    width: 10em;
 }

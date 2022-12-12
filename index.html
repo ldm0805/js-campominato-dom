@@ -12,13 +12,17 @@
     <title>Campominato</title>
 </head>
 <body>
-    <div class="input_class h-100">
-        <div class="input-group w-50 mt-5 d-flex justify-content-between w-100">
+    
+    <header>
+        <div class="input_class d-flex justify-content-center">
+            <div class="input-group pt-4 d-flex justify-content-between">
             <div id="logo" class="w-25 px-5 d-flex">
                 <img src="./img/Logo.png" alt="boolean-logo">
-                <h1 class="title ms-3">Boolean</h1>
+                <h1 class="title ms-3 text-white">Boolean</h1>
             </div>
-
+            <div>
+                <h1 class="title  text-white">Campo minato</h1>
+            </div>
             <div class="d-flex w-25 px-5">
                 <select id="level" class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
                     <option selected>Scegli il livello:</option>
@@ -26,15 +30,27 @@
                     <option value="81">Medio</option>
                     <option value="49">Difficile</option>
                 </select>
-                <button id="item-up" type="button" class="btn btn-info">Cliccami</button>
+                <button id="item-up" type="button" class="btn btn-info ms-5">Cliccami</button>
             </div>
-          </div>
-    </div>
-
-    <div class="container_grid d-flex justify-content-center">
-        <div id="grid" class="grid d-flex flex-wrap">
         </div>
     </div>
+</header>
+
+    <main>
+        <div class="container_grid d-flex justify-content-center">
+            <div id="grid" class="grid d-flex flex-wrap">
+            </div>        
+        </div>
+    </main>
+    
+    <footer>
+        <div class="point-cont input_class d-flex justify-content-center">
+            <h1 id="punteggio" class="title text-white">
+                
+            </h1>
+        </div>
+        
+    </footer>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>
