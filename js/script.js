@@ -1,3 +1,4 @@
+// Funzione che crea l'array delle bombe
 function createBombsArray(min, max){
     let bombs=[];
       let i=0;
@@ -13,7 +14,20 @@ function createBombsArray(min, max){
   return bombs
 }
 
+// Funzione per mostrare tutte le bombe
+function showAllBombs(createBombsArray){
 
+    const cells = document.getElementsByClassName('square');
+
+    for(let i=0; i<cells.length; i++){
+        let cell = cells[i];
+        if(createBombsArray.includes(parseInt(cell.innerText))){
+            cell.classList.add('clicked');
+            cell.classList.add('red');
+        }
+    }
+}
+// Richiamo al bottone
 let button = document.getElementById('item-up');
 
 button.addEventListener('click', function(){ 
@@ -29,12 +43,10 @@ if(grid){
 // Recupero valore livello
 grid_number = parseInt(document.getElementById('level').value);
 
-// creati 2 arrayBombs, 1 per i numeri 1 per le bombe
-
-
-
 
 // Ciclo per generare i quadrati con richiamo alla funzione
+let contCells = 0; //contatore punti
+
 for(let i = 0; i < grid_number; i++){
     const currentSquare = createGridSquare(i+1);
     grid.appendChild(currentSquare);
@@ -42,18 +54,23 @@ for(let i = 0; i < grid_number; i++){
 
 // Click sui quadrati
 currentSquare.addEventListener('click', function(){
+    
     this.classList.toggle('clicked')
-    if (arrayBombs.includes(parseInt(this.innerText))){
-        this.classList.remove('rd');
 
+    if (arrayBombs.includes(parseInt(this.innerText))){
+        this.classList.add('click');
         this.classList.add('red');
+        showAllBombs(arrayBombs);
         alert ('Hai preso una bomba'+ this.innerText);
+    }
+    else
+    {
+        contCells++;
+        console.log(contCells)
     }
     console.log(`La casella cliccata è la numero: ${this.innerText}`)
 },{once:`true`})
 }
-
-
 
 // array bombe
 
@@ -81,5 +98,5 @@ function createGridSquare(number){
     }
 }
 arrayBombs = createBombsArray(1, grid_number)
-console.log('questo' + arrayBombs)
+console.log('Array bombe' + arrayBombs)
 })
