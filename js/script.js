@@ -14,7 +14,7 @@ function createBombsArray(min, max){
   return bombs
 }
 
-// Funzione per mostrare tutte le bombe
+// Funzione per mostrare tutte le bombe se una viene cliccata
 function showAllBombs(createBombsArray){
 
     const cells = document.getElementsByClassName('square');
@@ -26,9 +26,9 @@ function showAllBombs(createBombsArray){
             currentSquare.classList.add('red');
         }
     }
-    console.log(createBombsArray)
 }
-// Richiamo al bottone
+
+// Richiamo al bottone per avviare il gioco
 let button = document.getElementById('item-up');
 
 button.addEventListener('click', function(){ 
@@ -44,10 +44,10 @@ if(grid){
 // Recupero valore livello
 grid_number = parseInt(document.getElementById('level').value);
 
+//Variabile contatore
+let contCells = 0; 
 
 // Ciclo per generare i quadrati con richiamo alla funzione
-let contCells = 0; //contatore punti
-
 for(let i = 0; i < grid_number; i++){
     const currentSquare = createGridSquare(i+1);
     grid.appendChild(currentSquare);
@@ -57,26 +57,23 @@ for(let i = 0; i < grid_number; i++){
 currentSquare.addEventListener('click', function(){
     
     this.classList.toggle('clicked')
-
+    //Richiamo la funzione che scopre tutte le bombe e restituisco un messaggio all'utente
     if (arrayBombs.includes(parseInt(this.innerText))){
-        this.classList.add('red');
-        grid.classList.add('remove');
         showAllBombs(arrayBombs);
         alert ('Ops, hai perso!');
     }
+
+    //Conto il punteggio dell'utente
     else
     {
         contCells++;
-        document.getElementById('punteggio').innerHTML =`Il tuo punteggio è : ${contCells}`
-        console.log(contCells)
-        
+        document.getElementById('punteggio').innerHTML =`Il tuo punteggio è : ${contCells}`        
     }
-    console.log(`La casella cliccata è la numero: ${this.innerText}`)
 },{once:`true`})
 }
 
-// Array bombe
 
+// Funzione che crea tutti i quadrati
 function createGridSquare(number){
     if(grid_number == 100){
         const currentElement = document.createElement('div');
