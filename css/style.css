@@ -24,8 +24,8 @@ h1.title{
 }
 
 .container_grid{
-    height: 700px;
-    width: 700px;
+    height: 720px;
+    width: 720px;
     margin: 3em auto;
     outline: 1px solid #181D31;
 }
@@ -58,18 +58,18 @@ h1.title{
 }
 
 .square-easy{
-    height: calc(700px / 10);
-    width: calc(700px / 10);
+    height: calc(100% / 10);
+    width: calc(100% / 10);
 }
 
 .square-med{
-    height: calc(700px / 9);
-    width: calc(700px / 9);
+    height: calc(100% / 9);
+    width: calc(100% / 9);
 }
 
 .square-diff{
-    height: calc(700px / 7);
-    width: calc(700px / 7);
+    height: calc(100% / 7);
+    width: calc(100% / 7);
 }
 
 .clicked{
